@@ -91,12 +91,22 @@ export default function HomeScreen() {
 
       {/* Нижняя панель навигации */}
       <View style={styles.bottomNav}>
-        {['home-outline', 'book-outline', 'scan-outline', 'people-outline', 'settings-outline'].map((icon, index) => (
-          <TouchableOpacity key={index} style={styles.navButton}>
-            <Ionicons name={icon} size={24} color={index === 0 ? '#4F8A4E' : '#aaa'} />
-          </TouchableOpacity>
-        ))}
-      </View>
+  {['home-outline', 'book-outline', 'scan-outline', 'people-outline', 'settings-outline'].map((icon, index) => (
+    <TouchableOpacity 
+      key={index} 
+      style={styles.navButton}
+      onPress={() => {
+        if (icon === 'book-outline') {
+          navigation.navigate('MicrogreensLibrary'); // Переход в библиотеку микрозелени
+        } else if (icon === 'home-outline') {
+          navigation.navigate('Home');
+        }
+      }}
+    >
+      <Ionicons name={icon} size={24} color={index === 1 ? '#4F8A4E' : '#aaa'} />
+    </TouchableOpacity>
+  ))}
+</View>
     </View>
   );
 }
