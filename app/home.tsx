@@ -27,18 +27,30 @@ export default function HomeScreen() {
         <Image source={require('@/assets/images/avatar.png')} style={styles.avatar} />
       </View>
 
-      {/* Иконки категорий */}
+     {/* Иконки категорий */}
       <View style={styles.categories}>
-        {[
-          { name: 'Water', icon: 'water-outline' },
-          { name: 'Light', icon: 'sunny-outline' },
-          { name: 'Plants', icon: 'leaf-outline' },
-        ].map((item, index) => (
-          <TouchableOpacity key={index} style={styles.categoryButton}>
-            <Ionicons name={item.icon} size={24} color="#4F8A4E" />
-            <Text style={styles.categoryText}>{item.name}</Text>
-          </TouchableOpacity>
-        ))}
+        <TouchableOpacity style={styles.categoryButton}>
+          <Ionicons name="water-outline" size={24} color="#4F8A4E" />
+          <Text style={styles.categoryText}>Water</Text>
+        </TouchableOpacity>
+
+        {/* Кнопка "Add", которая ведет на экран регистрации партии */}
+        <TouchableOpacity 
+          style={styles.categoryButton} 
+          onPress={() => navigation.navigate('RegisterBatch')}
+        >
+          <Ionicons name="add-circle-outline" size={24} color="#4F8A4E" />
+          <Text style={styles.categoryText}>Add</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+  style={styles.categoryButton} 
+  onPress={() => navigation.navigate('ObservationJournal')}
+>
+  <Ionicons name="leaf-outline" size={24} color="#4F8A4E" />
+  <Text style={styles.categoryText}>Plants</Text>
+</TouchableOpacity>
+
       </View>
 
       {/* Секция "My Plants" (горизонтальный скролл) */}
