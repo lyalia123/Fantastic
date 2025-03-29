@@ -23,12 +23,14 @@ export default function LoginScreen() {
 
         <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}>
           <Text style={styles.buttonText}>Sign In</Text>
+          onPress={() => router.push('/(tabs)/index.tsx')}
         </TouchableOpacity>
 
         <View style={styles.registerContainer}>
           <Text style={styles.registerText}>Don't have an account?</Text>
           <TouchableOpacity onPress={() => router.push('/register')}>
             <Text style={styles.registerLink}> Sign up</Text>
+            onPress={() => router.push('/register')}
           </TouchableOpacity>
         </View>
       </View>
